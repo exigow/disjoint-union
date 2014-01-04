@@ -30,57 +30,44 @@ bool Collection::addValue(int value) {
 	return checked;
 }
 
-void Collection::printMe() {
+void Collection::printList() {
 	int size = list.size();
 	printf("values (size: %d): ", size);
 	for (int i = 0; i < list.size() - 1; i++) {
 		printf("%d, ", list[i]);
 	}
 	printf("%d\n", list[list.size() - 1]);
+	return;
 }
 
-int Collection::sortMe() {
+void Collection::sortList() {
 	printf("sorting... \n");
-	int n = list.size();
+	int n = list.size(), step;
 	for (int passes = 0; passes < n - 1; passes++) {
-		for (int j = 0;  j < n - passes - 1;  j++) {
+		for (int j = 0; j < n - passes - 1; j++) {
 			if (list[j] > list[j+1]) {
 				swap(list[j], list[j + 1]);
+				step++;
 			}
 		}
 	}
-	return 0;
+	printf("done (steps: %d)\n", step);
+	return;
 }
 
-/*
- //Bubble Sorting begins
- for (int passes = 0;  passes < array_size - 1;  passes++)
- {
-  for (int j = 0;  j < array_size - passes - 1;  j++)
-  {
-   if (x[j] > x[j+1])
-   {
-    hold = x[j];
-    x[j] = x[j+1];
-    x[j+1]=hold;
+void Collection::updateOddCount() {
+	int n = list.size();
+	oddCount = 0; // Reset.
+	for (int i = 0; i < n; i++) {
+		if (list[i]%2 != 0) {
+			oddCount++;
+		}
+	}
+	return;
+}
 
-   }
-  }
- }  //Bubble Sorting finished
- */
+void Collection::printOddCount() {
+	printf("odd count: %d\n", this->oddCount);
+	return;
+}
 
-
-
-/*
-procedure bubbleSort( A : lista elementów do posortowania )
-  n = liczba_elementów(A)
-   do
-    for (i = 0; i < n-1; i++) do:
-      if A[i] > A[i+1] then
-        swap(A[i], A[i+1])
-      end if
-    end for
-    n = n-1
-  while n > 1
-end procedure
-*/

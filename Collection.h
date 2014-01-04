@@ -8,10 +8,13 @@ public:
 	Collection(void);
 	~Collection(void);
 	bool addValue(int value); // Zwraca false jesli sie powtarza, true jesli nie.
-	void printMe();
+	void printList();
 
 	vector<int> list;
+	int oddCount;
 
-	int sortMe();
+	void sortList();
+	void updateOddCount();
+	void printOddCount();
 };
 
