@@ -16,5 +16,7 @@ public:
 	void sortList();
 	void updateOddCount();
 	void printOddCount();
+	void addCollection(Collection *collection);
+	void eraseRepetitions();
 };
 
