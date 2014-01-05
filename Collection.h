@@ -1,22 +1,24 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 using namespace std;
 class Collection {
 public:
-	Collection(void);
+	Collection(string name);
 	~Collection(void);
-	bool addValue(int value); // Zwraca false jesli sie powtarza, true jesli nie.
-	void printList();
+	
+	string name;
+	vector<int> list, oddList;
 
-	vector<int> list;
-	int oddCount;
-
-	void sortList();
-	void updateOddCount();
-	void printOddCount();
+	bool addValue(int value);
+	void sortBubble();
+	void updateOdd();
 	void addCollection(Collection *collection);
 	void eraseRepetitions();
+
+	static void getInput(Collection *collection);
+	static void printList(vector<int> whatList);
 };
 

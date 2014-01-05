@@ -9,42 +9,31 @@
 
 using namespace std;
  
-int _tmain(int argc, _TCHAR* argv[]) {
+int main() {
 	Collection 
-		*red = new Collection(), 
-		*blue = new Collection(),
-		*sum = new Collection();
+		*red = new Collection("red"), 
+		*blue = new Collection("blue"),
+		*sum = new Collection("sum");
 
-	/*for (int i = 0; i < 5; i++) {
-		int get;
-		scanf("%d", &get);
-		red->addValue(get);
-	}*/
+	Collection::getInput(red);
+	red->sortBubble();
+	Collection::printList(red->list);
 
-	red->addValue(3);
-	red->addValue(4);
-	red->addValue(5);
-	red->addValue(6);
-	red->addValue(7);
-	red->addValue(8);
-	red->sortList();
-	red->printList();
+	Collection::getInput(blue);
+	blue->sortBubble();
+	Collection::printList(blue->list);
 
-	blue->addValue(5);
-	blue->addValue(6);
-	blue->addValue(7);
-	blue->addValue(8);
-	blue->addValue(9);
-	blue->addValue(10);
-	blue->sortList();
-	blue->printList();
-
-	// Liczenie rozmicy.
+	// Computing disjoint list.
 	sum->addCollection(red);
 	sum->addCollection(blue);
-	sum->sortList();
+	sum->sortBubble();
 	sum->eraseRepetitions();
-	sum->printList();
+	Collection::printList(sum->list);
+
+	// Showing odds.
+	sum->updateOdd();
+	printf("odd-list: \n");
+	Collection::printList(sum->oddList);
 
 	system("pause");
 	return 0;
