@@ -82,7 +82,8 @@ void Collection::getInput(Collection *collection) {
 	for (int i = 0; i < size; i++) {
 		printf("value %d: ", i);
 		scanf_s("%d", &value);
-		collection->list.push_back(value);
+		//collection->list.push_back(value);
+		collection->addValue(value);
 	}
 	return;
 }
@@ -99,10 +100,10 @@ void Collection::addCollection(Collection *collection) {
 
 void Collection::eraseRepetitions() {
 	printf("erasing repetitions\n");
-	/*for (size_t i = list.size(); i > 0; i--) {
+	for (size_t i = list.size() - 1; i > 0; i--) {
 		if (list[i] == list[i + 1]) {
 			list.erase(list.begin() + i);
 			list.erase(list.begin() + i);
 		}
-	}*/
+	}
 }
